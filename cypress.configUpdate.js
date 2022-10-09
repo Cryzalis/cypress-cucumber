@@ -29,7 +29,7 @@ module.exports = defineConfig({
 
       return config;
     },
-    defaultCommandTimeout:10000,
+    defaultCommandTimeout:12000,
     specPattern: "cypress/e2e/features/*.feature",
     baseUrl:"https://portal.telnyx.com",
     experimentalSessionAndOrigin: true,
