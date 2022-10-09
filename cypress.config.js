@@ -19,6 +19,7 @@ const createEsbuildPlugin =
 
 module.exports = defineConfig({
   e2e: {
+    defaultCommandTimeout:10000,
     async setupNodeEvents(on, config) {
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
