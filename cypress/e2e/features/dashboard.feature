@@ -4,6 +4,14 @@ Feature: Dashboard
 
     Background:
         Given A web browser is at the loged in
+    Scenario: Add SIM to Cart
+        Given A web browser is at the home page
+        When A user click to Cart and add SIM to cart
+        Then SIM added to Order
+    Scenario: Add new Profile
+        Given A web browser is at the Programmable Messaging page
+        When A user click create Profile and save it
+        Then new profile added to list
     Scenario: Add Programmable Voice App
         Given A web browser is at the Programmable Voice page
         When A user go to Programmable Voice click  add new app and fill inputs and click save
