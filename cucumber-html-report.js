@@ -9,8 +9,8 @@ report.generate({
     },
     device: "Local test machine",
     platform: {
-      name: "Windows",
-      version: "11",
+      name: "Ubuntu",
+      version: "20",
     },
   },
 });
