@@ -1,8 +1,7 @@
 {
     "json": {
       "enabled": false,
-      "output": "jsonlogs/log.json",
-      "formatter": "cucumber-json-formatter.exe"
+      "output": "jsonlogs/log.json"
     },
     "messages": {
       "enabled": false,

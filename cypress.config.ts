@@ -18,8 +18,8 @@ const createEsbuildPlugin =
 // }
 
 module.exports = defineConfig({
+  projectId: '2henxe',
   e2e: {
-
     async setupNodeEvents(on, config) {
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
@@ -30,9 +30,10 @@ module.exports = defineConfig({
 
       return config;
     },
-    // specPattern: "cypress/e2e/features/*.feature",
-    // baseUrl:"https://portal.telnyx.com",
-    // experimentalSessionAndOrigin: true,
-    // chromeWebSecurity: false,
+    defaultCommandTimeout:12000,
+    specPattern: "cypress/e2e/features/*.feature",
+    baseUrl:"https://portal.telnyx.com",
+    experimentalSessionAndOrigin: true,
+    chromeWebSecurity: false,
   },
 });
