@@ -12,6 +12,8 @@ jobs:
         with:
           node-version: '12' # In command line run “node -v” and choose your version
       - run: npm ci
+      - run: npm install
+      - run: npm i allure-commandline
 #      - run: npm config set script-shell "C:\Program Files\Git\bin\bash.exe"
       - name: run test
         run: npm run cy:cucumber:run # Our name of the headless script
