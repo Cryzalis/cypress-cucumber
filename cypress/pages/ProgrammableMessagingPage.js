@@ -4,7 +4,6 @@ const addProfile = '[data-testid="add-messaging-profile-button"]'
 const inputProfile = '[placeholder="Name of the messaging profile"]'
 const buttonSave = 'Save'
 class ProgrammableMessagingPage extends Pages{
-
     clickAddNewprofile(){
         cy.get(addProfile).click()
     }
@@ -14,7 +13,5 @@ class ProgrammableMessagingPage extends Pages{
     clickSave(){
         cy.get('button').contains(buttonSave).click()
     }
-
-
 }
-module.exports = new ProgrammableMessagingPage()
+export default new  ProgrammableMessagingPage()

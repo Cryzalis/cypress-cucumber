@@ -13,4 +13,4 @@ class LoginPage extends Pages{
         cy.get(errorMessage).should('be.visible')
     }
 }
-module.exports = new LoginPage()
+export default new  LoginPage()

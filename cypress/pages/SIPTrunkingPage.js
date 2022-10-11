@@ -35,4 +35,4 @@ class SIPTrunkingPage extends Pages{
         cy.get(placeForClick).click()
     }
 }
-module.exports = new SIPTrunkingPage()
+export default  new SIPTrunkingPage()

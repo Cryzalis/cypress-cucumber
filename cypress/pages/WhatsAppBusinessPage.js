@@ -15,4 +15,4 @@ class ProgrammableVoicePage extends Pages{
     }
 
 }
-module.exports = new ProgrammableVoicePage()
+export default new ProgrammableVoicePage()

@@ -10,4 +10,4 @@ class HomePage extends Pages{
     }
 
 }
-module.exports = new HomePage()
+export default new HomePage()

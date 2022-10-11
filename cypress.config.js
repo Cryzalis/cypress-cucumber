@@ -1,39 +1,46 @@
-const { defineConfig } = require("cypress");
-const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
-const addCucumberPreprocessorPlugin =
-  require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
-const createEsbuildPlugin =
-  require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
-
-//If using this approach, just call the key "setupNodeEvents" in the E2E configurations
-// async function setupNodeEvents(on, config) {
-//   await addCucumberPreprocessorPlugin(on, config);
-//   on(
-//     "file:preprocessor",
-//     createBundler({
-//       plugins: [createEsbuildPlugin(config)],
-//     })
-//   );
-//   return config;
-// }
+const { defineConfig } = require('cypress');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+const webpack = require('@cypress/webpack-preprocessor');
+const {
+    addCucumberPreprocessorPlugin
+} = require('@badeball/cypress-cucumber-preprocessor');
 
 module.exports = defineConfig({
-  projectId: '2henxe',
-  e2e: {
-    async setupNodeEvents(on, config) {
-      const bundler = createBundler({
-        plugins: [createEsbuildPlugin(config)],
-      });
-
-      on("file:preprocessor", bundler);
-      await addCucumberPreprocessorPlugin(on, config);
-
-      return config;
+    env: {
+        issuePrefix: 'https://your.domain.atlassian.net/browse/',
+        tmsPrefix: 'https://some.testrail.instance/path/suite/caseID-'
     },
-    defaultCommandTimeout:12000,
-    specPattern: "cypress/e2e/features/*.feature",
-    baseUrl:"https://portal.telnyx.com",
-    experimentalSessionAndOrigin: true,
-    chromeWebSecurity: false,
-  },
+    defaultCommandTimeout:15000,
+    //specPattern: "cypress/e2e/features/*.feature",
+    
+    e2e: {
+        baseUrl:"https://portal.telnyx.com",
+        experimentalSessionAndOrigin: true,
+        setupNodeEvents: async function (on, config) {
+            await addCucumberPreprocessorPlugin(on, config);
+            on(
+                'file:preprocessor',
+                webpack({
+                    webpackOptions: {
+                        resolve: { extensions: ['.ts', '.js'] },
+                        module: {
+                            rules: [
+                                {
+                                    test: /\.feature$/,
+                                    use: [
+                                        {
+                                            loader: '@badeball/cypress-cucumber-preprocessor/webpack',
+                                            options: config
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                })
+            );
+            allureWriter(on, config);
+            return config;
+        }
+    }
 });

@@ -28,6 +28,5 @@ class ProgrammableVoicePage extends Pages{
     clickConfirmDelete(){
         cy.get(confirmDelete).click()
     }
-
 }
-module.exports = new ProgrammableVoicePage()
+export default new  ProgrammableVoicePage()
