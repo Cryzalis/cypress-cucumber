@@ -2,7 +2,7 @@ name: Main Github Actions
 on:
   push:
     branches:
-      - 'master' # Set branch of the GH repo to push
+      - 'main' # Set branch of the GH repo to push
 jobs:
   test_suite: # Name of the job
       runs-on: ubuntu-20.04 # Choosing OS
@@ -14,13 +14,13 @@ jobs:
       - run: npm ci
 #      - run: npm config set script-shell "C:\Program Files\Git\bin\bash.exe"
       - name: run test
-        run: npm run cy:cucumber:run # Our name of the headless script
+        run: run cy:cucumber:run # Our name of the headless script
       - name: Copy History
         if: always()
         run: cp -r $(pwd)/docs/history/. $(pwd)/allure-results/history
       - name: Generate Report
         if: always()
-        run: npm run allure:generate # Name of the allure generate script
+        run: npm run allure:report # Name of the allure generate script
       - name: Upload Results
         uses: actions/upload-artifact@v1
         if: always()
@@ -51,3 +51,5 @@ jobs:
           destination-repository-name: 'reponame' # Name of your repo
           user-email: user@gmail.com # Your email
           target-branch: main 
+
+          
