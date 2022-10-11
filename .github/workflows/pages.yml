@@ -49,8 +49,8 @@ jobs:
           API_TOKEN_GITHUB: ${{ 'YOUR TOKEN' }} # Instruction where to get token is below
         with:
           source-directory: 'docs'
-          destination-github-username: 'username' # Your username
-          destination-repository-name: 'reponame' # Name of your repo
+          destination-github-username: 'Cryzalis' # Your username
+          destination-repository-name: 'cypress-cucumber' # Name of your repo
           user-email: user@gmail.com # Your email
           target-branch: main 
 
