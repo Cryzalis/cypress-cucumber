@@ -8,7 +8,7 @@ const {
 module.exports = defineConfig({
     env: {
     },
-    defaultCommandTimeout:15000,
+    defaultCommandTimeout:19000,
     //specPattern: "cypress/e2e/features/*.feature",
     
     e2e: {

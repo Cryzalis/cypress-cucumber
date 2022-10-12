@@ -15,6 +15,6 @@ Cypress.Commands.add('login', (email, password) => {
       cy.get(inputEmail).clear().type(email,{ force: true})
       cy.get(inputPassword).clear().type(password,{ force: true})
       cy.get(buttonLogin).click({ force: true})
-      cy.url({timeout:15000}).should("contains", "#/app/")
+      cy.url({timeout:20000}).should("contains", "#/app/")
     })
   })
