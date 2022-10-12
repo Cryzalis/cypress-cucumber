@@ -7,8 +7,6 @@ const {
 
 module.exports = defineConfig({
     env: {
-        issuePrefix: 'https://your.domain.atlassian.net/browse/',
-        tmsPrefix: 'https://some.testrail.instance/path/suite/caseID-'
     },
     defaultCommandTimeout:15000,
     //specPattern: "cypress/e2e/features/*.feature",
