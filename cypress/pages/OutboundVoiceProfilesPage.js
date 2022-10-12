@@ -1,5 +1,5 @@
 import Pages from './Pages'
-const buttonAddNewProfile = 'Add New Profile'
+const buttonAddNewProfile = '[data-testid="title-container"] button'
 const inputOutboundVoiceProfileName = 'input[name="name"]'
 const buttonCreate = 'button[type="submit"]'
 const buttonEditProfileFirst = 'tbody tr:first-child td:last-child button:first-child'
@@ -8,7 +8,7 @@ const deleteFirstApp = 'tbody tr:first-child td:last-child button:last-child'
 const confirmDelete = '[type="button"]+[type="button"]'
 class ProgrammableVoicePage extends Pages{
     clickButtonAddNewProfile(){
-        cy.get('button').contains(buttonAddNewProfile).click()
+        cy.get(buttonAddNewProfile).click()
     }
     fillInputOutboundVoiceProfileName(name){
         cy.get(inputOutboundVoiceProfileName).type(name)
