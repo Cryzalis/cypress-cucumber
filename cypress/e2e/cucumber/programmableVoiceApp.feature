@@ -1,4 +1,4 @@
-Feature: Dashboard
+Feature: Dashboard Programmable Voice App
 
     Feature Testing dashboard telynx.com
 

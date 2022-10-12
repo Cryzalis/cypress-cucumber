@@ -1,4 +1,4 @@
-Feature: Dashboard
+Feature: Dashboard Outbound Voice Profile
 
     Feature Testing dashboard telynx.com
 

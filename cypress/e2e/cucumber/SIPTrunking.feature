@@ -1,4 +1,4 @@
-Feature: Dashboard
+Feature: Dashboard SIP Trunking
 
     Feature Testing dashboard telynx.com
 
